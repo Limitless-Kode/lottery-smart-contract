@@ -20,9 +20,6 @@ This file defines the Lottery contract, which implements the lottery game. The c
 `lotteryId`: An integer representing the ID of the current lottery.
 `history`: A mapping from lottery IDs to LotteryRecord structs representing the history of past lotteries.
 
-## Events
-`LogMessage`: A simple event that logs a message.
-
 ## Structs
 `LotteryRecord`: A struct representing the history of a past lottery. It contains the address of the winner, the amount of ether won, and an array of player addresses.
 
