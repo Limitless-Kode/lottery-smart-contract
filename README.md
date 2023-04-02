@@ -31,11 +31,17 @@ This file defines the Lottery contract, which implements the lottery game. The c
 
 ## Functions
 `constructor`: Initializes the contract by setting the contract owner and the current lottery ID.
+
 `getBalance`: Returns the current balance of the contract.
+
 `getPlayers`: Returns an array of addresses representing the registered players.
+
 `getWinnerByLotteryId`: Takes a lottery ID and returns the corresponding LotteryRecord struct from the history mapping.
+
 `getLotteryHistory`: Returns an array of LotteryRecord structs representing the history of past lotteries.
+
 `register`: Allows a player to register for the current lottery by sending a certain amount of ether.
+
 `pickWinner`: Picks a random winner from the registered players and transfers the prize money to the winner. It also creates a new lottery and adds a corresponding LotteryRecord to the history mapping.
 
 ## Testing
