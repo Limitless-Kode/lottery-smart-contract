@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.19+commit.7dd6d404"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -25,12 +25,78 @@
 			},
 			{
 				"inputs": [],
+				"name": "getLotteryHistory",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address payable",
+								"name": "winner",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amountWon",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address payable[]",
+								"name": "players",
+								"type": "address[]"
+							}
+						],
+						"internalType": "struct Lottery.LotteryRecord[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getPlayers",
 				"outputs": [
 					{
 						"internalType": "address payable[]",
 						"name": "",
 						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_lotteryId",
+						"type": "uint256"
+					}
+				],
+				"name": "getWinnerByLotteryId",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address payable",
+								"name": "winner",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "amountWon",
+								"type": "uint256"
+							},
+							{
+								"internalType": "address payable[]",
+								"name": "players",
+								"type": "address[]"
+							}
+						],
+						"internalType": "struct Lottery.LotteryRecord",
+						"name": "",
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -119,11 +185,11 @@
 			]
 		},
 		"contracts/Lottery.sol": {
-			"keccak256": "0xf3228f98df7ea2a8b868fc8227133455c191edca5debf01e48cfb433472358d3",
+			"keccak256": "0xd8b0cb73246904d5a5df7242bc4153d6460b7456ac8c03c171d8311c71ac82f3",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c6faf13953925eb27f7a202033040d7b938b3e0fd8915af595e0a06bf6e0caef",
-				"dweb:/ipfs/QmeZkf79i4t5LSELNEr3QeAsSKnYxokuRmozi7MY29Quff"
+				"bzz-raw://0ca3a4dc221694164bb1134ab6f99284174f9aacd7c6eb9a8b32775c557d7cff",
+				"dweb:/ipfs/QmUm5YQrtpzCzowDieHZEP6rivHqU7s6C2u161b3PBan2p"
 			]
 		}
 	},
