@@ -16,8 +16,11 @@ This file defines the Lottery contract, which implements the lottery game. The c
 
 ### State Variables
 `owner`: The address of the contract owner.
+
 `players`: An array of addresses representing the players who have registered for the lottery.
+
 `lotteryId`: An integer representing the ID of the current lottery.
+
 `history`: A mapping from lottery IDs to LotteryRecord structs representing the history of past lotteries.
 
 ## Structs
