@@ -3,7 +3,6 @@
 pragma solidity ^0.8.11;
 
 import "./Helper.sol";
-import "truffle/Assert.sol";
 
 contract Lottery {
   address public owner;
@@ -42,15 +41,15 @@ contract Lottery {
   }
 
   function getLotteryHistory() public view returns (LotteryRecord[] memory){
-    LotteryRecord[] memory result = new LotteryRecord[](lotteryId);
+    LotteryRecord[] memory result = new LotteryRecord[](lotteryId - 1);
     
-    for(uint i = 1; i <= lotteryId; i++){
-      Assert.fail(i);
-      LotteryRecord memory record = history[i];
+    for(uint i = 0; i < lotteryId - 1; i++){
+      LotteryRecord memory record = history[i+1];
       result[i] = record;
     }
-    return result;  
+    return result;
   }
+
   
   function register() public payable {
     require(msg.value > .01 ether);
