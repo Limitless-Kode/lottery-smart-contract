@@ -5,7 +5,7 @@ pragma solidity ^0.8.11;
 import "./Helper.sol";
 
 contract Lottery {
-  error LotteryExpiredError(uint timestamp, uint endDate);
+  error LotteryExpiredError(uint timestamp, uint endTime);
 
   address public owner;
   address payable[] players;
@@ -14,15 +14,15 @@ contract Lottery {
   uint lotteryId;
   uint totalTickets;
   uint ticketAmount;
-  uint public endDate;
+  uint public endTime;
   mapping(uint => LotteryRecord) history;
 
-  constructor(uint _totalTickets, uint _ticketAmount, uint _endDate){
-    require(_endDate >= MIN_END_DATE, "End Date should be equal to or more than 2 min");
+  constructor(uint _totalTickets, uint _ticketAmount, uint _endTime){
+    require(_endTime >= MIN_END_DATE, "End Date should be equal to or more than 2 min");
     owner = msg.sender;
     totalTickets = _totalTickets;
     ticketAmount = _ticketAmount;
-    endDate = block.timestamp + _endDate;
+    endTime = block.timestamp + _endTime;
     lotteryId = 1;
   }
 
@@ -63,10 +63,10 @@ contract Lottery {
   function register() public payable {
     require(msg.value > ticketAmount, "Amount too low to purchase ticket");
     require(totalTickets > 0, "Tickets are sold out");
-    if(players.length > 1 && block.timestamp > endDate){
-      revert LotteryExpiredError(block.timestamp, endDate);
-    }else if(block.timestamp > endDate){
-      endDate = block.timestamp + MIN_END_DATE;
+    if(players.length > 1 && block.timestamp > endTime){
+      revert LotteryExpiredError(block.timestamp, endTime);
+    }else if(block.timestamp > endTime){
+      endTime = block.timestamp + MIN_END_DATE;
     }
     
 
@@ -75,7 +75,7 @@ contract Lottery {
   }
 
   function pickWinner() public isOwner{
-    require(block.timestamp >= endDate, "Lottery end time hasn't reached");
+    require(block.timestamp >= endTime, "Lottery end time hasn't reached");
 
     uint index = Helper.generateRandomNumber(owner) % players.length;
     uint balance = this.getBalance();
@@ -85,7 +85,7 @@ contract Lottery {
     history[lotteryId++] = LotteryRecord(players[index], balance, players);
     // clean up players
     players = new address payable[](0);
-    endDate = block.timestamp + MIN_END_DATE;
+    endTime = block.timestamp + MIN_END_DATE;
     totalTickets = MIN_TICKETS;
     
   }

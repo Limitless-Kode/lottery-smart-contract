@@ -19,7 +19,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_endDate",
+						"name": "_endTime",
 						"type": "uint256"
 					}
 				],
@@ -35,7 +35,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "endDate",
+						"name": "endTime",
 						"type": "uint256"
 					}
 				],
@@ -44,7 +44,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "endDate",
+				"name": "endTime",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -211,11 +211,11 @@
 			]
 		},
 		"contracts/Lottery.sol": {
-			"keccak256": "0x4d8f108cb8849d67bfac8f4a7fb91234e81b63321c4afb17630c19dbfda06768",
+			"keccak256": "0x89f58e42e2b4f4032da73584a6e63cc976ae4fbdaf0477de834e5f1047a97548",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://265a1a02792dd3b04554fb8bbdafe1e9e5321675cc2ae61f853d84afcbfe0569",
-				"dweb:/ipfs/QmateZuwTcLDQ28WNkSsvnnXydQQ31NDxdYRxxyKpeHXg5"
+				"bzz-raw://c2bcb415ed72a2300fe1b88aff2021da6f0c9c547bd6e7936cf7f28413912748",
+				"dweb:/ipfs/QmYazQmPy7LRAiHGsMR1KshK6Ymc3WJqsCvemrXSpzDv84"
 			]
 		}
 	},
