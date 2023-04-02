@@ -1,0 +1,131 @@
+{
+	"compiler": {
+		"version": "0.8.19+commit.7dd6d404"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPlayers",
+				"outputs": [
+					{
+						"internalType": "address payable[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pickWinner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "players",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "register",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/Lottery.sol": "Lottery"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/Helper.sol": {
+			"keccak256": "0xf1bfd32f56a22ca181fa93d30ed1e10218951e7db6ed90b50f84d6b0592e3e00",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b707d98ad2b3e756485c087ab78d7a92e9cf505d3c22c5788316d261afc0f5dc",
+				"dweb:/ipfs/QmaUtWhnjudkS2cHSacWKLdTX1eisCYkPQPAnDW5jpXG5T"
+			]
+		},
+		"contracts/Lottery.sol": {
+			"keccak256": "0xf3228f98df7ea2a8b868fc8227133455c191edca5debf01e48cfb433472358d3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c6faf13953925eb27f7a202033040d7b938b3e0fd8915af595e0a06bf6e0caef",
+				"dweb:/ipfs/QmeZkf79i4t5LSELNEr3QeAsSKnYxokuRmozi7MY29Quff"
+			]
+		}
+	},
+	"version": 1
+}
