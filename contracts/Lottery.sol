@@ -5,13 +5,24 @@ pragma solidity ^0.8.11;
 import "./Helper.sol";
 
 contract Lottery {
+  error LotteryExpiredError(uint timestamp, uint endDate);
+
   address public owner;
-  address payable[] public players;
+  address payable[] players;
+  uint constant MIN_END_DATE = 60 * 2;
+  uint constant MIN_TICKETS = 3;
   uint lotteryId;
+  uint totalTickets;
+  uint ticketAmount;
+  uint public endDate;
   mapping(uint => LotteryRecord) history;
 
-  constructor(){
+  constructor(uint _totalTickets, uint _ticketAmount, uint _endDate){
+    require(_endDate >= MIN_END_DATE, "End Date should be equal to or more than 2 min");
     owner = msg.sender;
+    totalTickets = _totalTickets;
+    ticketAmount = _ticketAmount;
+    endDate = block.timestamp + _endDate;
     lotteryId = 1;
   }
 
@@ -50,11 +61,22 @@ contract Lottery {
 
   
   function register() public payable {
-    require(msg.value > .01 ether);
+    require(msg.value > ticketAmount, "Amount too low to purchase ticket");
+    require(totalTickets > 0, "Tickets are sold out");
+    if(players.length > 1 && block.timestamp > endDate){
+      revert LotteryExpiredError(block.timestamp, endDate);
+    }else if(block.timestamp > endDate){
+      endDate = block.timestamp + MIN_END_DATE;
+    }
+    
+
     players.push(payable(msg.sender));
+    totalTickets--;
   }
 
   function pickWinner() public isOwner{
+    require(block.timestamp >= endDate, "Lottery end time hasn't reached");
+
     uint index = Helper.generateRandomNumber(owner) % players.length;
     uint balance = this.getBalance();
     players[index].transfer(balance);
@@ -63,6 +85,8 @@ contract Lottery {
     history[lotteryId++] = LotteryRecord(players[index], balance, players);
     // clean up players
     players = new address payable[](0);
+    endDate = block.timestamp + MIN_END_DATE;
+    totalTickets = MIN_TICKETS;
     
   }
 }

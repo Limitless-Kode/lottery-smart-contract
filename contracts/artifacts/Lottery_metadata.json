@@ -6,9 +6,54 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_totalTickets",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_ticketAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_endDate",
+						"type": "uint256"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endDate",
+						"type": "uint256"
+					}
+				],
+				"name": "LotteryExpiredError",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "endDate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [],
@@ -123,25 +168,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "players",
-				"outputs": [
-					{
-						"internalType": "address payable",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "register",
 				"outputs": [],
@@ -185,11 +211,11 @@
 			]
 		},
 		"contracts/Lottery.sol": {
-			"keccak256": "0xd8b0cb73246904d5a5df7242bc4153d6460b7456ac8c03c171d8311c71ac82f3",
+			"keccak256": "0x4d8f108cb8849d67bfac8f4a7fb91234e81b63321c4afb17630c19dbfda06768",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0ca3a4dc221694164bb1134ab6f99284174f9aacd7c6eb9a8b32775c557d7cff",
-				"dweb:/ipfs/QmUm5YQrtpzCzowDieHZEP6rivHqU7s6C2u161b3PBan2p"
+				"bzz-raw://265a1a02792dd3b04554fb8bbdafe1e9e5321675cc2ae61f853d84afcbfe0569",
+				"dweb:/ipfs/QmateZuwTcLDQ28WNkSsvnnXydQQ31NDxdYRxxyKpeHXg5"
 			]
 		}
 	},
