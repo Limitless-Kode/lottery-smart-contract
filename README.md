@@ -1,50 +1,59 @@
 # Lottery Smart Contract
-This is a smart contract for a lottery game written in Solidity. It allows players to register and participate in a lottery by sending a certain amount of ether. The contract's owner can then pick a random winner from the registered players and transfer the prize money to the winner.
 
-The contract consists of two Solidity files:
+A smart contract that enables people to enter into a lottery by buying tickets. The contract randomly selects a winner at a predetermined date and time.
 
-## Helper.sol
-This file defines a library called Helper that provides a function to generate a random number based on the contract owner's address and the current block timestamp. The generateRandomNumber function is defined as follows:
+## Getting Started
 
-```solidity
-function generateRandomNumber(address owner) public view returns (uint){
-  return uint(keccak256(abi.encodePacked(owner, block.timestamp)));
-}
-```
-## Lottery.sol
-This file defines the Lottery contract, which implements the lottery game. The contract defines the following:
+### Prerequisites
 
-### State Variables
-`owner`: The address of the contract owner.
+- Solidity compiler
+- Remix IDE or any other Ethereum development environment
 
-`players`: An array of addresses representing the players who have registered for the lottery.
+### Installing
 
-`lotteryId`: An integer representing the ID of the current lottery.
+1. Clone the repository
+`git clone https://github.com/Limitless-Kode/lottery-smart-contract.git`
 
-`history`: A mapping from lottery IDs to LotteryRecord structs representing the history of past lotteries.
 
-## Structs
-`LotteryRecord`: A struct representing the history of a past lottery. It contains the address of the winner, the amount of ether won, and an array of player addresses.
+2. Compile the contract in Remix or with the Solidity compiler
 
-## Modifiers
-`isOwner`: A modifier that checks if the caller is the contract owner.
+3. Deploy the contract to the Ethereum network
 
-## Functions
-`constructor`: Initializes the contract by setting the contract owner and the current lottery ID.
+## Usage
 
-`getBalance`: Returns the current balance of the contract.
+### Creating a Lottery
 
-`getPlayers`: Returns an array of addresses representing the registered players.
+To create a new lottery, call the `constructor` function with the following parameters:
 
-`getWinnerByLotteryId`: Takes a lottery ID and returns the corresponding LotteryRecord struct from the history mapping.
+- `_totalTickets`: the total number of tickets available for the lottery
+- `_ticketAmount`: the amount of ether required to purchase a ticket
+- `_endTime`: the end time of the lottery in seconds from the current time
 
-`getLotteryHistory`: Returns an array of LotteryRecord structs representing the history of past lotteries.
+### Buying a Ticket
 
-`register`: Allows a player to register for the current lottery by sending a certain amount of ether.
+To buy a ticket, call the `register` function with the following parameters:
 
-`pickWinner`: Picks a random winner from the registered players and transfers the prize money to the winner. It also creates a new lottery and adds a corresponding LotteryRecord to the history mapping.
+- `msg.value`: the amount of ether sent to purchase the ticket
 
-## Testing
-To test the smart contract, you can use Truffle's testing framework. You can run the tests by running truffle test in the project directory.
+### Picking a Winner
 
-Note that this contract is for demonstration purposes only and should not be used for real-world lotteries as it may contain security vulnerabilities.
+To pick a winner, call the `pickWinner` function. The contract will randomly select a winner and transfer the total balance of the contract to the winner's address.
+
+### Retrieving Information
+
+- `getBalance`: returns the balance of the contract
+- `getPlayers`: returns an array of addresses that have purchased tickets
+- `getWinnerByLotteryId`: returns the winner of a specific lottery
+- `getLotteryHistory`: returns an array of all lottery winners
+
+## Built With
+
+- Solidity
+
+## Authors
+
+- Peter Claver <limitless.claver@gmail.com>
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
