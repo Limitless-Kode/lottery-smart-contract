@@ -15,8 +15,6 @@ contract Lottery {
     lotteryId = 1;
   }
 
-  event LogMessage(string message);
-
   struct LotteryRecord {
     address payable winner;
     uint amountWon;
